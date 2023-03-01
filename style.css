@@ -1,0 +1,20 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: url(./images/emojis-risas.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 50px;
+}
+
+h1, h4 {
+    color: saddlebrown;
+}
+
+h3 {
+    color:rgb(197, 95, 23);
+}
+
+button {
+    background-color: rgb(210, 105, 30);
+    color: aliceblue;
+}

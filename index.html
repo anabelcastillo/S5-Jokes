@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acudits</title>
-</head>
-<body>
-    <h1>Start the working day with a smile!!</h1>
-    <div id="show-joke"></div>
-    <button id="btn-next" onclick="getJoke()">NEXT JOKE</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <script
+      src="https://kit.fontawesome.com/db1eb623e4.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>TypeScript & API</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container-fluid">
+        <span class="navbar-text"> Avui: Parcialment ennuvolat </span>
+      </div>
+    </nav>
+
+    <main class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Ready to smaile? 🤣</h5>
+              <p class="card-text" id="show-joke"></p>
+              <!-- <a href="#" class="btn btn-primary">Next joke</a> -->
+              <button class="btn btn-primary" id="btn-next" onclick="getJoke()">
+                Next joke
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <script src="main.js"></script>
-</body>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
 </html>

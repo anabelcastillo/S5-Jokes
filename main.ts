@@ -1,5 +1,5 @@
-const API_URL_JOKE: string = "https://icanhazdadjoke.com/";
-const header = {
+const API_URL_JOKE:string = "https://icanhazdadjoke.com/";
+const header:object = {
   headers: {
     Accept: 'application/json'
   }
