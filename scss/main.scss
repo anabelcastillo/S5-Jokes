@@ -2,3 +2,11 @@
 
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+    background-image: url(/images/risas.jpg);
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat:  no-repeat;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

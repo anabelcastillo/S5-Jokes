@@ -16,28 +16,27 @@
     <title>TypeScript & API</title>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="container-fluid">
-        <span class="navbar-text"> Avui: Parcialment ennuvolat </span>
+    <div class="container p-3">
+      
+      <div class="row">
+        <div class="col">Today: partially cloudy</div>
       </div>
-    </nav>
 
-    <main class="container">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-6">
-          <div class="card text-center">
+      <main class="row vh-100 justify-content-center align-items-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          <div class="card py-3 text-center border-0 shadow">
             <div class="card-body">
-              <h5 class="card-title">Ready to smaile? 🤣</h5>
-              <p class="card-text" id="show-joke"></p>
-              <!-- <a href="#" class="btn btn-primary">Next joke</a> -->
-              <button class="btn btn-primary" id="btn-next" onclick="getJoke()">
+              <h5 class="card-title fw-bold">Ready to smaile? 🤣</h5>
+              <p class="card-text py-5 px-sm-5 " id="show-joke"></p>
+              <button type="button" class="btn btn-info text-white" id="btn-next" onclick="getJoke()">
                 Next joke
               </button>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+
+    </div> <!-- final container -->
 
     <script src="main.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
