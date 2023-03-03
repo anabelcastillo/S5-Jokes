@@ -26,8 +26,13 @@
         <div class="col-12 col-md-8 col-lg-6">
           <div class="card py-3 text-center border-0 shadow">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Ready to smaile? 🤣</h5>
-              <p class="card-text py-5 px-sm-5 " id="show-joke"></p>
+              <h5 class="card-title fw-bold">Ready to smaile?</h5>
+              <p class="card-text pt-5 px-sm-5 " id="joke-text"></p>
+              <div class="pb-5" id="score-buttons" style="display: none;">
+                <button type="button" class="btn btn-link btn-lg emoji" onclick="userScore(1)"><i class="fa-regular fa-face-laugh-beam"></i></button>
+                <button type="button" class="btn btn-link btn-lg emoji" onclick="userScore(2)"><i class="fa-regular fa-face-laugh-squint"></i></button>
+                <button type="button" class="btn btn-link btn-lg emoji" onclick="userScore(3)"><i class="fa-regular fa-face-grin-squint-tears"></i></button>
+              </div>
               <button type="button" class="btn btn-info text-white" id="btn-next" onclick="getJoke()">
                 Next joke
               </button>
