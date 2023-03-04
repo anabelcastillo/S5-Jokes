@@ -9,12 +9,27 @@ const header: object = {
 const btnNext: HTMLElement | null = document.getElementById("btn-next"); // Botón para obtener el siguiente chiste
 const jokeText: HTMLElement | null = document.getElementById("joke-text"); // Texto donde se mostrará el chiste
 const scoreBtns: HTMLElement | null = document.getElementById("score-buttons"); // Div donde se mostrarán los botones de puntuación
+const weatherContainer: HTMLElement | null = document.getElementById("weather-information"); // Div donde se mostrará el tiempo
+
+// Obtener la posición actual del usuario usando la API de geolocalización
+navigator.geolocation.getCurrentPosition(position => {
+  // Usar las coordenadas de latitud y longitud para construir la URL de la API
+  const apiKey: string = "d0047952dfbeb9ec30622425fe11ed84";
+  const API_URL_WEATHER: string = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+// Obtener los datos meteorológicos de la API y mostrarlo en el DOM
+fetch(API_URL_WEATHER)
+  .then(response => response.json())
+  .then((data: any) => {
+    weatherContainer.innerHTML = `${data.main.temp}°C`;
+  })
+  .catch((error: Error) => console.log(error));
+})
 
 const reportJokes: any[] = [];
 const d = new Date();
 let text = d.toISOString();
 
-// Función para obtener el chiste y mostrarlo en el DOM
+// Función para obtener el chiste de la API y mostrarlo en el DOM
 function getJoke(): void {
   fetch(API_URL_JOKE, header)
   .then(response => response.json())
@@ -22,7 +37,7 @@ function getJoke(): void {
     jokeText.innerHTML = data.joke; // Muestra el chiste
     scoreBtns.style.display = "block"; // Mostramos los botones de puntuación
   })
-  .catch(error => console.log(error));
+  .catch((error: Error) => console.log(error));
 }
 
 // Función para actualizar la puntuación del chiste
