@@ -1,5 +1,6 @@
 "use strict";
-const API_URL_JOKE = "https://icanhazdadjoke.com/"; // URL de la API
+const API_URL_CHUCK = "https://api.chucknorris.io/jokes/random"; // URL de la API de Chuck Norris
+const API_URL_JOKE = "https://icanhazdadjoke.com/"; // URL de la API de chistes
 const header = {
     headers: {
         Accept: 'application/json'
@@ -28,10 +29,19 @@ const d = new Date();
 let text = d.toISOString();
 // Función para obtener el chiste de la API y mostrarlo en el DOM
 function getJoke() {
-    fetch(API_URL_JOKE, header)
+    const jokeAPISs = [API_URL_JOKE, API_URL_CHUCK];
+    const request = fetch(jokeAPISs[Math.floor(Math.random() * jokeAPISs.length)], header);
+    request
         .then(response => response.json())
         .then((data) => {
-        jokeText.innerHTML = data.joke; // Muestra el chiste
+        let joke;
+        if (data.joke) {
+            joke = data.joke;
+        }
+        else if (data.value) {
+            joke = data.value;
+        }
+        jokeText.innerHTML = joke; // Muestra el chiste
         scoreBtns.style.display = "block"; // Mostramos los botones de puntuación
     })
         .catch((error) => console.log(error));
