@@ -11,6 +11,7 @@ const btnNext = document.getElementById("btn-next"); // Botón para obtener el s
 const jokeText = document.getElementById("joke-text"); // Texto donde se mostrará el chiste
 const scoreBtns = document.getElementById("score-buttons"); // Div donde se mostrarán los botones de puntuación
 const weatherContainer = document.getElementById("weather-information"); // Div donde se mostrará el tiempo
+const showBlob = document.getElementById("imagen");
 // Obtener la posición actual del usuario usando la API de geolocalización
 navigator.geolocation.getCurrentPosition(position => {
     // Usar las coordenadas de latitud y longitud para construir la URL de la API
@@ -27,6 +28,8 @@ navigator.geolocation.getCurrentPosition(position => {
 const reportJokes = [];
 const d = new Date();
 let text = d.toISOString();
+const images = ["images/blob1.svg", "images/blob2.svg", "images/blob3.svg", "images/blob4.svg"];
+let currentImageIndex = 0;
 // Función para obtener el chiste de la API y mostrarlo en el DOM
 function getJoke() {
     const jokeAPISs = [API_URL_JOKE, API_URL_CHUCK];
@@ -43,12 +46,14 @@ function getJoke() {
         }
         jokeText.innerHTML = joke; // Muestra el chiste
         scoreBtns.style.display = "block"; // Mostramos los botones de puntuación
+        showBlob.src = images[currentImageIndex]; // Cambio de la imagen
+        //currentImageIndex = (currentImageIndex +1) % images.length;
+        currentImageIndex = Math.floor(Math.random() * images.length);
     })
         .catch((error) => console.log(error));
 }
-// Función para actualizar la puntuación del chiste
 function userScore(score) {
-    const currentJoke = reportJokes.find(joke => joke.joke === jokeText.innerHTML);
+    const currentJoke = reportJokes.find((joke) => joke.joke === jokeText.innerHTML);
     if (currentJoke) {
         currentJoke.score = score;
     }

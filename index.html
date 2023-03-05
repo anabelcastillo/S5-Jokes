@@ -24,18 +24,21 @@
         </div>
       </div>
 
-      <main class="row vh-100 justify-content-center align-items-center">
+      <main class="row position-relative vh-100 justify-content-center align-items-center">
+        <div class="position-absolute top-50 start-50 translate-middle" id="show-blobmaker">          
+          <img src="images/blob2.svg" id="imagen">
+        </div>
         <div class="col-12 col-md-8 col-lg-6">
-          <div class="card py-3 text-center border-0 shadow">
+          <div class="card py-3 text-center border-0 bg-transparent">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Ready to smaile?</h5>
+              <h5 class="card-title text-secondary fs-2 fw-bold">Ready to smaile?</h5>
               <p class="card-text pt-5 px-sm-5 " id="joke-text"></p>
               <div class="pb-5" id="score-buttons" style="display: none;">
-                <button type="button" class="btn btn-link btn-lg emoji" onclick="userScore(1)"><i class="fa-regular fa-face-laugh-beam"></i></button>
-                <button type="button" class="btn btn-link btn-lg emoji" onclick="userScore(2)"><i class="fa-regular fa-face-laugh-squint"></i></button>
-                <button type="button" class="btn btn-link btn-lg emoji" onclick="userScore(3)"><i class="fa-regular fa-face-grin-squint-tears"></i></button>
+                <button type="button" class="btn btn-link btn-lg p-2 emoji" onclick="userScore(1)"><i class="fa-regular fa-face-laugh-beam"></i></button>
+                <button type="button" class="btn btn-link btn-lg p-2 emoji" onclick="userScore(2)"><i class="fa-regular fa-face-laugh-squint"></i></button>
+                <button type="button" class="btn btn-link btn-lg p-2 emoji" onclick="userScore(3)"><i class="fa-regular fa-face-grin-squint-tears"></i></button>
               </div>
-              <button type="button" class="btn btn-info text-white" id="btn-next" onclick="getJoke()">
+              <button type="button" class="btn btn-outline-danger font-monospace text-uppercase" id="btn-next" onclick="getJoke()">
                 Next joke
               </button>
             </div>

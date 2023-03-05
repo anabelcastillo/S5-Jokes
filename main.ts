@@ -1,5 +1,5 @@
-const API_URL_CHUCK:string = "https://api.chucknorris.io/jokes/random"; // URL de la API de Chuck Norris
-const API_URL_JOKE:string = "https://icanhazdadjoke.com/"; // URL de la API de chistes
+const API_URL_CHUCK: string = "https://api.chucknorris.io/jokes/random"; // URL de la API de Chuck Norris
+const API_URL_JOKE: string = "https://icanhazdadjoke.com/"; // URL de la API de chistes
 const header: object = {
   headers: {
     Accept: 'application/json'
@@ -11,6 +11,7 @@ const btnNext: HTMLElement | null = document.getElementById("btn-next"); // Bot�
 const jokeText: HTMLElement | null = document.getElementById("joke-text"); // Texto donde se mostrará el chiste
 const scoreBtns: HTMLElement | null = document.getElementById("score-buttons"); // Div donde se mostrarán los botones de puntuación
 const weatherContainer: HTMLElement | null = document.getElementById("weather-information"); // Div donde se mostrará el tiempo
+const showBlob: HTMLElement | null = document.getElementById("imagen");
 
 // Obtener la posición actual del usuario usando la API de geolocalización
 navigator.geolocation.getCurrentPosition(position => {
@@ -28,16 +29,18 @@ fetch(API_URL_WEATHER)
 
 const reportJokes: any[] = [];
 const d = new Date();
-let text = d.toISOString();
+let text: string = d.toISOString();
+const images: string[] = ["images/blob1.svg", "images/blob2.svg", "images/blob3.svg", "images/blob4.svg"];
+let currentImageIndex: number = 0;
 
 // Función para obtener el chiste de la API y mostrarlo en el DOM
 function getJoke(): void {
-  const jokeAPISs = [API_URL_JOKE, API_URL_CHUCK];
-  const request = fetch(jokeAPISs[Math.floor(Math.random() * jokeAPISs.length)], header);
+  const jokeAPISs: string[] = [API_URL_JOKE, API_URL_CHUCK];
+  const request: Promise<Response> = fetch(jokeAPISs[Math.floor(Math.random() * jokeAPISs.length)], header);
   request
     .then(response => response.json())
-    .then((data: { joke: string }) => {
-      let joke;
+    .then((data: { joke: string, value: string }) => {
+      let joke: any;
       if (data.joke) {
         joke = data.joke;
       } else if (data.value) {
@@ -45,13 +48,22 @@ function getJoke(): void {
       }
       jokeText.innerHTML = joke; // Muestra el chiste
       scoreBtns.style.display = "block"; // Mostramos los botones de puntuación
+      showBlob.src = images[currentImageIndex]; // Cambio de la imagen
+      //currentImageIndex = (currentImageIndex +1) % images.length;
+      currentImageIndex = Math.floor(Math.random() * images.length);
     })
     .catch((error: Error) => console.log(error));
 }
 
 // Función para actualizar la puntuación del chiste
+interface Joke {
+  joke: string;
+  score: number;
+  date: string;
+}
+
 function userScore(score: number): void {
-  const currentJoke = reportJokes.find(joke => joke.joke === jokeText.innerHTML);
+  const currentJoke: any = reportJokes.find((joke: any) => joke.joke === jokeText.innerHTML);
 
   if(currentJoke) {
     currentJoke.score = score;

@@ -1,21 +1,21 @@
-
+$primary:       #332C39;
+$secondary:     #F0EEED;
+$danger:        #C92C6D;
 
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 body {
-    background-image: url(/images/risas.jpg);
-    background-size: cover;
-    background-position: center bottom;
-    background-repeat:  no-repeat;
+    background-color: $primary;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: $secondary;
 }
 
 .emoji {
     font-size: 30px;
-    color:sienna;
+    color: $danger;
  }
 
 .emoji:hover {
-    color:seagreen;
+    color: $secondary;
 }
