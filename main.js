@@ -10,8 +10,9 @@ const header = {
 const btnNext = document.getElementById("btn-next"); // Botón para obtener el siguiente chiste
 const jokeText = document.getElementById("joke-text"); // Texto donde se mostrará el chiste
 const scoreBtns = document.getElementById("score-buttons"); // Div donde se mostrarán los botones de puntuación
-const weatherContainer = document.getElementById("weather-information"); // Div donde se mostrará el tiempo
-const showBlob = document.getElementById("imagen");
+const weatherTemp = document.getElementById("weather-information"); // Div donde se mostrará la temperatura
+const weatherIcon = document.getElementById("icon"); // Div donde se mostrará el icono de la temperatura
+const showBlob = document.getElementById("blob");
 // Obtener la posición actual del usuario usando la API de geolocalización
 navigator.geolocation.getCurrentPosition(position => {
     // Usar las coordenadas de latitud y longitud para construir la URL de la API
@@ -21,7 +22,10 @@ navigator.geolocation.getCurrentPosition(position => {
     fetch(API_URL_WEATHER)
         .then(response => response.json())
         .then((data) => {
-        weatherContainer.innerHTML = `${data.main.temp}°C`;
+        weatherTemp.innerHTML = `${data.main.temp}°C`;
+        const iconCode = data.weather[0].icon;
+        const iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+        weatherIcon.style.backgroundImage = "url(" + iconUrl + ")";
     })
         .catch((error) => console.log(error));
 });
@@ -47,7 +51,6 @@ function getJoke() {
         jokeText.innerHTML = joke; // Muestra el chiste
         scoreBtns.style.display = "block"; // Mostramos los botones de puntuación
         showBlob.src = images[currentImageIndex]; // Cambio de la imagen
-        //currentImageIndex = (currentImageIndex +1) % images.length;
         currentImageIndex = Math.floor(Math.random() * images.length);
     })
         .catch((error) => console.log(error));

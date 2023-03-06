@@ -10832,4 +10832,12 @@ body {
 
 .emoji:hover {
   color: #F0EEED;
+}
+
+.weather-icon {
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }/*# sourceMappingURL=main.css.map */

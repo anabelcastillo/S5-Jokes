@@ -1,54 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="css/main.css" />
-    <script
-      src="https://kit.fontawesome.com/db1eb623e4.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>TypeScript & API</title>
-  </head>
-  <body>
-    <div class="container p-3">
-      
-      <div class="row">
-        <div class="col">
-          <div id="weather-information"></div>
-        </div>
-      </div>
 
-      <main class="row position-relative vh-100 justify-content-center align-items-center">
-        <div class="position-absolute top-50 start-50 translate-middle" id="show-blobmaker">          
-          <img src="images/blob2.svg" id="imagen">
-        </div>
-        <div class="col-12 col-md-8 col-lg-6">
-          <div class="card py-3 text-center border-0 bg-transparent">
-            <div class="card-body">
-              <h5 class="card-title text-secondary fs-2 fw-bold">Ready to smaile?</h5>
-              <p class="card-text pt-5 px-sm-5 " id="joke-text"></p>
-              <div class="pb-5" id="score-buttons" style="display: none;">
-                <button type="button" class="btn btn-link btn-lg p-2 emoji" onclick="userScore(1)"><i class="fa-regular fa-face-laugh-beam"></i></button>
-                <button type="button" class="btn btn-link btn-lg p-2 emoji" onclick="userScore(2)"><i class="fa-regular fa-face-laugh-squint"></i></button>
-                <button type="button" class="btn btn-link btn-lg p-2 emoji" onclick="userScore(3)"><i class="fa-regular fa-face-grin-squint-tears"></i></button>
-              </div>
-              <button type="button" class="btn btn-outline-danger font-monospace text-uppercase" id="btn-next" onclick="getJoke()">
-                Next joke
-              </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <script src="https://kit.fontawesome.com/db1eb623e4.js" crossorigin="anonymous"></script>
+  <title>TypeScript & API</title>
+</head>
+
+<body>
+  <div class="container p-3">
+
+    <div class="row">
+      <div class="col d-flex align-items-center">
+        <div id="icon" class="weather-icon me-2 border-end border-danger"></div>
+        <div id="weather-information"></div>
+      </div>
+    </div>
+
+    <main class="row position-relative vh-100 justify-content-center align-items-center">
+      <div class="position-absolute top-50 start-50 translate-middle" id="show-blobmaker">
+        <img src="images/blob2.svg" id="blob">
+      </div>
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="card py-3 text-center border-0 bg-transparent">
+          <div class="card-body">
+            <h5 class="card-title text-secondary fs-2 fw-bold">Ready to smaile?</h5>
+            <p class="card-text pt-5 px-sm-5 " id="joke-text"></p>
+            <div class="pb-5" id="score-buttons" style="display: none;">
+              <button type="button" class="btn btn-link btn-lg p-2 emoji" onclick="userScore(1)"><i
+                  class="fa-regular fa-face-laugh-beam"></i></button>
+              <button type="button" class="btn btn-link btn-lg p-2 emoji" onclick="userScore(2)"><i
+                  class="fa-regular fa-face-laugh-squint"></i></button>
+              <button type="button" class="btn btn-link btn-lg p-2 emoji" onclick="userScore(3)"><i
+                  class="fa-regular fa-face-grin-squint-tears"></i></button>
             </div>
+            <button type="button" class="btn btn-outline-danger font-monospace text-uppercase" id="btn-next"
+              onclick="getJoke()">
+              Next joke
+            </button>
           </div>
         </div>
-      </main>
+      </div>
+    </main>
 
-    </div> <!-- final container -->
+  </div>
 
-    <script src="main.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  </body>
+  <script src="main.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
 </html>
